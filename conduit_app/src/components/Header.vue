@@ -1,11 +1,11 @@
 <template>
     <header>
         <nav class="container">
-        <a href="/"><img alt="conduit" id="logo" src="https://raw.githubusercontent.com/gothinkster/realworld-starter-kit/master/logo.png"></a>
+        <a href="/"><img alt="logo" id="logo" src="https://raw.githubusercontent.com/gothinkster/realworld-starter-kit/master/logo.png"></a>
         <img @click="openMenu" alt="Abrir menu" id="menu-button" src="../assets/menu_black_24dp.svg">
         <div @click="closeMenu" id="menu-overlay" v-if="menuActivie"></div>
         <div id="menu-items" :class="{active:menuActivie}">
-            <a href="/"><img alt="conduit" id="menu-logo" src="https://raw.githubusercontent.com/gothinkster/realworld-starter-kit/master/logo.png"></a>
+            <a href="/"><img alt="logo" id="menu-logo" src="https://raw.githubusercontent.com/gothinkster/realworld-starter-kit/master/logo.png"></a>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/login">Sing In</a></li>

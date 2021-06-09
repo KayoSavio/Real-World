@@ -1,8 +1,6 @@
 <template>
     <footer>
-      <div class="container">
         <a href="/" id="link-home">Projeto Real World by Kayo Savio</a>
-      </div>
     </footer>
 </template>
 
@@ -13,15 +11,15 @@ export default {
 </script>
 
 <style scoped>
-    div{
+    footer{
         display: flex;
         justify-content: center;
+        align-items: center;
         background-color: #9C489C;
         width: 100%;
         height: 60px;
     }
     #link-home{
-        margin-top: 20px;
-        color: white;
+        color: var(--color-text-light);
     }
 </style>

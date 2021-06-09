@@ -1,4 +1,4 @@
-# conduit_app
+# real_world
 
 ## Project setup
 ```

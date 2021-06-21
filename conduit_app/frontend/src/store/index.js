@@ -1,10 +1,11 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
-import home from "./module/home.module";
-import auth from "./module/auth.module";
-import article from "./module/article.module";
-import profile from "./module/profile.module";
+import article from "./modules/article/article.module";
+import auth from "./modules/auth/auth.module";
+import home from "./modules/home/home.module";
+import profile from "./modules/profile/profile.module";
+import settings from "./modules/settings/settings.module";
 
 Vue.use(Vuex);
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
     home,
     auth,
     article,
-    profile
+    profile,
+    settings,
   }
 });

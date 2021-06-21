@@ -3,7 +3,7 @@
     <div class="banner">
       <div class="container">
         <h1>{{ article.title }}</h1>
-        <RwvArticleMeta :article="article" :actions="true"></RwvArticleMeta>
+        <ArticleMeta :article="article" :actions="true"></ArticleMeta>
       </div>
     </div>
     <div class="container page">
@@ -12,39 +12,39 @@
           <div v-html="parseMarkdown(article.body)"></div>
           <ul class="tag-list">
             <li v-for="(tag, index) of article.tagList" :key="tag + index">
-              <RwvTag
+              <Tag
                 :name="tag"
                 className="tag-default tag-pill tag-outline"
-              ></RwvTag>
+              ></Tag>
             </li>
           </ul>
         </div>
       </div>
       <hr />
       <div class="article-actions">
-        <RwvArticleMeta :article="article" :actions="true"></RwvArticleMeta>
+        <ArticleMeta :article="article" :actions="true"></ArticleMeta>
       </div>
       <div class="row">
         <div class="col-xs-12 col-md-8 offset-md-2">
-          <RwvCommentEditor
+          <CommentEditor
             v-if="isAuthenticated"
             :slug="slug"
             :userImage="currentUser.image"
           >
-          </RwvCommentEditor>
+          </CommentEditor>
           <p v-else>
             <router-link :to="{ name: 'login' }">Sign in</router-link>
             or
             <router-link :to="{ name: 'register' }">sign up</router-link>
             to add comments on this article.
           </p>
-          <RwvComment
+          <Comment
             v-for="(comment, index) in comments"
             :slug="slug"
             :comment="comment"
             :key="index"
           >
-          </RwvComment>
+          </Comment>
         </div>
       </div>
     </div>
@@ -54,11 +54,11 @@
 <script>
 import { mapGetters } from "vuex";
 import marked from "marked";
-import store from "@/store";
-import articleMeta from "@/components/ArticleMeta";
-import comment from "@/components/Comment";
-import commentEditor from "@/components/CommentEditor";
-import RwvTag from "@/components/VTag";
+import store from "../store";
+import ArticleMeta from "../components/ArticleMeta";
+import Comment from "../components/Comment";
+import CommentEditor from "../components/CommentEditor";
+import Tag from "../components/VTag";
 
 export default {
   name: "article",
@@ -69,10 +69,10 @@ export default {
     }
   },
   components: {
-    articleMeta,
-    comment,
-    commentEditor,
-    RwvTag
+    ArticleMeta,
+    Comment,
+    CommentEditor,
+    Tag
   },
   beforeRouteEnter(to, from, next) {
     Promise.all([

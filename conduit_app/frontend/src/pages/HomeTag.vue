@@ -1,5 +1,5 @@
 <template>
-  <div class="home-tag"><ArticleList :tag="tag"></ArticleList></div>
+  <div class="tag"><ArticleList :tag="tag"></ArticleList></div>
 </template>
 
 <script>

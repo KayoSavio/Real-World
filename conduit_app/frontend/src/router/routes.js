@@ -10,7 +10,7 @@ export default new Router({
       component: () => import("../pages/Home"),
       children: [
         {
-          path: "",
+          path: "/",
           name: "home",
           component: () => import("../pages/HomeGlobal")
         },

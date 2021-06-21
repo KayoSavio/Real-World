@@ -51,7 +51,6 @@
               </button>
             </fieldset>
           </form>
-          <!-- Line break for logout button -->
           <hr />
           <button @click="logout" class="btn btn-outline-danger">
             Or click here to logout.
@@ -73,7 +72,8 @@ export default {
   methods: {
     updateSettings() {
       this.$store.dispatch("updateUser", this.currentUser).then(() => {
-        this.$router.push({ name: "home" });
+        this.$router.push({ name: 'profile',
+              params: { username: this.currentUser.username }});
       });
     },
     logout() {

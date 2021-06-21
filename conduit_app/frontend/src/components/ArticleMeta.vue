@@ -36,7 +36,8 @@
 
 <script>
 import { mapGetters } from "vuex";
-import ArticleActions from "@/components/ArticleActions";
+import ArticleActions from "../components/ArticleActions";
+import date from "../services/date.filter";
 
 export default {
   name: "ArticleMeta",

@@ -79,6 +79,10 @@ export default {
       required: false
     }
   },
+  //vue-router fluxo(beforeRouteUpdate, beforeRouteEnter, beforeRouteLeave)
+  /**
+   * @description
+   */
   async beforeRouteUpdate(to, from, next) {
     await store.dispatch("resetArticleState");
     return next();
@@ -110,6 +114,7 @@ export default {
   },
   methods: {
     onPublish(slug) {
+      //Operador Condicional
       let action = slug ? "articleEdit" : "articlePublish";
       this.inProgress = true;
       this.$store

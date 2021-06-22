@@ -63,7 +63,7 @@
             exact
             :to="{ name: 'settings' }"
           >
-            <i class="ion-gear-a"></i>&nbsp;Settings
+            <i class="ion-gear-a"/>&nbsp;Settings
           </router-link>
         </li>
         <li class="nav-item" v-if="currentUser.username">

@@ -1,5 +1,7 @@
 <template>
-  <div class="home-my-feed"><ArticleList type="feed" /></div>
+  <div class="home-my-feed">
+    <ArticleList type="feed"/>
+  </div>
 </template>
 
 <script>

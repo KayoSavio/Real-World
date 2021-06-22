@@ -3,28 +3,28 @@
     <div v-if="isLoading" class="article-preview">Loading articles...</div>
     <div v-else>
       <div v-if="articles.length === 0" class="article-preview">
-        No articles are here... yet.
+        No articles here... yet.
       </div>
       <ArticlePreview
         v-for="(article, index) in articles"
         :article="article"
         :key="article.title + index"
       />
-      <VPagination :pages="pages" :currentPage.sync="currentPage" />
+      <Pagination :pages="pages" :currentPage.sync="currentPage" />
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import ArticlePreview from "./VArticlePreview";
-import VPagination from "./VPagination";
+import ArticlePreview from "./ArticlePreview";
+import Pagination from "./Pagination";
 
 export default {
   name: "ArticleList",
   components: {
     ArticlePreview,
-    VPagination
+    Pagination
   },
   props: {
     type: {
@@ -81,6 +81,9 @@ export default {
         return [];
       }
       return [
+        //retorna o menor número inteiro maior ou igual a this.articlesCount dividido por this.itemsPerPage
+        //O método keys() retorna um novo Array Iterator que contém as chaves para cada index do array.
+        //O método map() invoca a função callback passada por argumento para cada elemento do Array e devolve um novo Array como resultado.
         ...Array(Math.ceil(this.articlesCount / this.itemsPerPage)).keys()
       ].map(e => e + 1);
     },

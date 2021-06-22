@@ -1,8 +1,14 @@
 import api from "../../../services/api";
-import jwt from "../../../services/jwt.service";
+import jwt from "../../../token/jwt.service";
 import { SET_AUTH, SET_ERROR, PURGE_AUTH } from "./auth.type";
 
 export const actions = {
+  /**
+   * @description
+   * @param {*} context
+   * @param {*} credentials
+   * @returns
+   */
   login(context, credentials) {
     return new Promise(resolve => {
       api.post("users/login", { user: credentials })
@@ -15,9 +21,18 @@ export const actions = {
         });
     });
   },
+  /**
+   * @description
+   */
   logout(context) {
     context.commit(PURGE_AUTH);
   },
+  /**
+   * @description
+   * @param {*} context
+   * @param {*} credentials
+   * @returns
+   */
   register(context, credentials) {
     return new Promise((resolve, reject) => {
       api.post("users", { user: credentials })
@@ -31,6 +46,9 @@ export const actions = {
         });
     });
   },
+  /**
+   * @description
+   */
   checkAuth(context) {
     if (jwt.getToken()) {
       api.setHeader();
@@ -45,6 +63,12 @@ export const actions = {
       context.commit(PURGE_AUTH);
     }
   },
+  /**
+   * @description
+   * @param {*} context
+   * @param {*} payload
+   * @returns
+   */
   updateUser(context, payload) {
     const { email, username, password, image, bio } = payload;
     const user = {

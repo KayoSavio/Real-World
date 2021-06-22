@@ -6,6 +6,12 @@ const articleService = createArticleService();
 const tagService = createTagService();
 
 export const actions = {
+  /**
+   * @description ele mostra para o usuário que está "carregando" até retornar os
+   * artigos globais da api, usado em articleList
+   * @param {*} param
+   * @returns
+   */
   fetchArticles({ commit }, params) {
     commit(FETCH_START);
     return articleService.query(params.type, params.filters)
@@ -16,6 +22,12 @@ export const actions = {
         throw new Error(error);
       });
   },
+  /**
+   * @description ele faz uma requisição tipo get para api retornando as tags que são
+   * usadas nos artigos
+   * @param {*} param0
+   * @returns
+   */
   fetchTags({ commit }) {
     return tagService.get()
       .then(({ data }) => {

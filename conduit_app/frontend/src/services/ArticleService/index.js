@@ -11,8 +11,9 @@ import { ARTICLES } from "../api/resources";
 
 export const createArticleService = (providedApi = api) => ({
   /**
-   * @description retorna uma lista de artigos
-   * @param {'feed' | ''} type - indica se são artigos do feed do usuario ou globais
+   * @description responsavel pelo feed global de artigos
+   * @param {'feed' | ''} type - verifica se type é igual a feed ou /feed ou ""
+   * todos são maneiras de acessar o feed global do site
    * @param {*} params
    * @returns {object []} lista de artigos
    */
@@ -22,19 +23,32 @@ export const createArticleService = (providedApi = api) => ({
     });
   },
   /**
-   *
-   * @param {*} slug
-   * @returns
+   * @description Busca um artigo
+   * @param {*} slug Parametro passado no ArticleAction/ Slug é o id do artigo definido na req
    */
   get(slug) {
     return providedApi.get(ARTICLES, slug);
   },
+  /**
+   * @description Cria um artigo
+   * @param {*} params parâmetros definidos no article.state
+   */
   create(params) {
     return providedApi.post(ARTICLES, { article: params });
   },
+  /**
+   * @description Atualiza o artigo
+   * @param {*} slug Parametro passado no ArticleAction/ Slug é o id do artigo definido no JSON
+   * @param {*} params parâmetros definidos no article.state
+   */
   update(slug, params) {
     return providedApi.update(ARTICLES, slug, { article: params });
   },
+  /**
+   * @description Deleta o artigo
+   * @param {*} slug Parametro passado no ArticleAction/ Slug é o id do artigo que você quer deletar definido definido na req
+   * @param {*} ARTICLES "articles" rota da api
+   */
   destroy(slug) {
     return providedApi.delete(`${ARTICLES}/${slug}`);
   }

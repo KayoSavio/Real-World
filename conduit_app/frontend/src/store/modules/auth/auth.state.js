@@ -1,4 +1,4 @@
-import jwt from "../../../services/jwt.service";
+import jwt from "../../../token/jwt.service";
 
 export const state = {
   errors: null,

@@ -58,7 +58,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import Tag from "@/components/VTag";
+import Tag from "@/components/Tag";
 
 export default {
   name: "home",

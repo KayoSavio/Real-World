@@ -58,7 +58,7 @@ import store from "../store";
 import ArticleMeta from "../components/ArticleMeta";
 import Comment from "../components/Comment";
 import CommentEditor from "../components/CommentEditor";
-import Tag from "../components/VTag";
+import Tag from "../components/Tag";
 
 export default {
   name: "article",
@@ -86,6 +86,8 @@ export default {
     ...mapGetters(["article", "currentUser", "comments", "isAuthenticated"])
   },
   methods: {
+    //usado o marked para o mostrar um texto simples,
+    // sem parecer que foi marcado com tags ou instruções de formatação.
     parseMarkdown(content) {
       return marked(content);
     }
